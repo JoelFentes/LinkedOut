@@ -1,0 +1,55 @@
+/* components/Input/input.css */
+
+.input-wrapper {
+    display: flex;
+    width: 250px;
+    height: 35px; /* Ajuste a altura para acomodar melhor o conteúdo */
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #202020;
+    opacity: 70%;
+    width: 100%;
+    border-radius: 2px; /* Arredondar bordas */
+    overflow: hidden; /* Para esconder a borda do select */
+}
+
+.input-icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 0.7rem;
+    margin-right: 0.4rem;
+}
+
+/* Estilos para o input de texto */
+.custom-input, .custom-select {
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem; /* Espaçamento interno */
+}
+
+.search-bar {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Estilos específicos para Location */
+.location-input .input-container {
+    width: 200px;
+}
+
+.location-select {
+    color: #202020;
+}
+
+.custom-select::-webkit-scrollbar {
+    width: 0px; 
+}
+

@@ -1,4 +1,79 @@
+/* globals.css */
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
 :root {
     --button-color: #1D3557; /* Variável para a cor dos botões */
   }
   
+
+.home-content {
+  height: 100vh;
+
+}
+
+.home-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  font-family: 'Albert Sans', sans-serif;
+  text-align: center;
+
+  position: relative;
+  top: 20%;
+  right: 22.5%;
+}
+
+.home-text h1 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.home-text p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #202020;
+  opacity: 50%;
+}
+
+.image {
+  position: relative;
+  left: 60%;
+  bottom: 17rem;
+  width: 500px; 
+  height: 500px; 
+}
+
+.home-image {
+  object-fit: contain;
+}
+
+.search-button {
+  background-color: var(--button-color);
+  position: relative;
+  left: 19rem;
+  bottom: 2.2rem;
+  border: transparent;
+  color: #ffff;
+  width: 150px;
+  height: 35px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  white-space: nowrap; /* Impede que o texto divida em várias linhas */
+}
+
+.gif-container {
+  display: flex;
+  justify-content: center; /* Centraliza os GIFs horizontalmente */
+  margin-top: 2rem; /* Ajusta a margem entre os inputs e os GIFs */
+  gap: 2rem; /* Define o espaçamento entre os GIFs */
+}
+
+.gif img {
+  width: 50px;
+  height: 50px;
+}

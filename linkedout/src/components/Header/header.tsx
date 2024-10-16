@@ -1,6 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import './header.css';
+
+
 
 const Header = () => {
   return (
@@ -21,8 +24,12 @@ const Header = () => {
           <li><a href="#">About Us</a></li>
         </ul>
         <div className="auth-links">
-          <button className="login-button">Login</button>
-          <button className="signup-button">Sign Up</button>
+          <Link href="/login">
+            <button className="login-button">Login</button>
+          </Link>
+          <Link href="/signup">
+            <button className="signup-button">Sign Up</button>
+          </Link>
         </div>
       </nav>
     </header>
