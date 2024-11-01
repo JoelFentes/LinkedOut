@@ -1,9 +1,10 @@
 "use server";
 import { DataTypes } from 'sequelize';
 import { sequelize } from "../config/db";
+
 export const Candidato = sequelize.define('Candidato', {
   id: {
-    type: DataTypes.INTEGER(),
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
@@ -17,7 +18,7 @@ export const Candidato = sequelize.define('Candidato', {
     allowNull: false
   },
   penalizacao: {
-    type: DataTypes.INTEGER(),
+    type: DataTypes.INTEGER,
     allowNull: false
   },
   latitude: {
@@ -38,4 +39,6 @@ export const Candidato = sequelize.define('Candidato', {
     type: DataTypes.STRING(250),
     allowNull: false
   }
+}, {
+  tableName: 'candidatos' // Altere o nome da tabela aqui
 });
