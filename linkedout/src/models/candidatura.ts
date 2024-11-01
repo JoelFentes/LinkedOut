@@ -1,39 +1,28 @@
 "use server";
-import { Vaga } from "./vaga";
-import { Empregado } from "./empregado";
-import { Coordenadas } from "./coordenadas";
-
-export enum StatusCandidatura {
-  PENDENTE = "PENDENTE",
-  APROVADO = "APROVADO",
-  RECUSADO = "RECUSADO",
-}
-
-export class Candidatura {
-  id: number;
-  vaga: Vaga;
-  empregado: Empregado;
-  distancia: number;
-  status: StatusCandidatura;
-
-  constructor(
-    id: number,
-    vaga: Vaga,
-    empregado: Empregado,
-    distancia: number,
-    status: StatusCandidatura
-  ) {
-    this.id = id;
-    this.vaga = vaga;
-    this.empregado = empregado;
-    this.distancia = distancia;
-    this.status = status;
+import { DataTypes } from 'sequelize';
+import { sequelize } from "../config/db";
+import { Vaga } from './vaga';
+export const Candidatura = sequelize.define('Candidatura', {
+  id: {
+    type: DataTypes.INTEGER(),
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
+  },
+  id_vaga: {
+    type: DataTypes.INTEGER(),
+    allowNull: false
+  },
+  distancia: {
+    type: DataTypes.FLOAT(8,2),
+    allowNull: false,
+    defaultValue: 0
+  },
+  status: {
+    type: DataTypes.ENUM(),
+    allowNull: false,
   }
+});
 
-  calcularDistancia(empregado: Empregado, coordenadas: Coordenadas) {}
-
-  penalizarEmpregadoSeNecessario(
-    empregado: Empregado,
-    distanciaMaxima: number
-  ) {}
-}
+Candidatura.belongsTo(Vaga, { foreignKey: 'id_vaga' });
+Vaga.hasMany(Candidatura, { foreignKey: 'id_vaga' });
