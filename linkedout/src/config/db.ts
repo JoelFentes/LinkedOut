@@ -5,15 +5,19 @@ export const sequelize = new Sequelize('linkedout', 'root', '', {
   dialect: 'mysql',
 });
 
+// Função para verificar a conexão e sincronizar as tabelas
 const checkDB = async () => {
   try {
     await sequelize.authenticate();
-    await sequelize.sync();
     console.log("Database connection is successful.");
+
+    await sequelize.sync(); 
+    console.log("All tables have been created!");
+
   } catch (error) {
     console.error("Database connection failed:", error);
   }
 };
 
-// Chama a função checkDB
 checkDB();
+

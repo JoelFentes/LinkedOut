@@ -1,10 +1,9 @@
 "use server";
 import { DataTypes } from 'sequelize';
-import { sequelize } from "../config/db";
-
+import { sequelize } from '../../connection';
 export const Empregador = sequelize.define('Empregador', {
   id: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.INTEGER(),
     primaryKey: true,
     autoIncrement: true,
     allowNull: false
@@ -27,6 +26,4 @@ export const Empregador = sequelize.define('Empregador', {
     type: DataTypes.STRING(250),
     allowNull: false
   }
-}, {
-  tableName: 'empregadores' 
 });
