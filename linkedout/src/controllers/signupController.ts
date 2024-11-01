@@ -24,7 +24,7 @@ export async function signup(req: Request, res: Response) {
   try {
     if (tipo === TipoUsuario.EMPREGADO) {
       // Registro de um empregado
-      const novoCandidato = await Candidato.create({
+      const novoCandidato = await Candidato.creat({
         nome,
         email,
         senha: md5(senha),
