@@ -1,26 +1,43 @@
 'use server'
+"use server";
+import { DataTypes } from 'sequelize';
+import { sequelize } from "../config/db";
 import { Empregador } from './empregador';
-import { Coordenadas } from './coordenadas';
-import { Empregado } from './empregado';
+export const Vaga = sequelize.define('Vaga', {
+  id: {
+    type: DataTypes.INTEGER(),
+    primaryKey: true,
+    autoIncrement: true,
+    allowNull: false
+  },
+  distancia_maxima: {
+    type: DataTypes.FLOAT(),
+    allowNull: false,
+    defaultValue: 0
+  },
+  latitude: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0
+  },
+  longitude: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0
+  },
+  id_empregador: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  titulo: {
+    type: DataTypes.STRING(250),
+    allowNull: false
+  },
+  descricao: {
+    type: DataTypes.TEXT,
+    allowNull: false
+  },
+});
 
-export class Vaga {
-  id: number;
-  titulo: string;
-  descricao: string;
-  localizacao: Coordenadas;
-  empregador: Empregador;
-  distanciaMaxima: number;
-
-  constructor(id: number, titulo: string, descricao: string, localizacao: Coordenadas, empregador: Empregador, distanciaMaxima: number) {
-    this.id = id;
-    this.titulo = titulo;
-    this.descricao = descricao;
-    this.localizacao = localizacao;
-    this.empregador = empregador;
-    this.distanciaMaxima = distanciaMaxima;
-  }
-
-  avaliarCandidato(empregado: Empregado) {
-
-  }
-}
+Vaga.belongsTo(Empregador, { foreignKey: 'id_empregador' });
+Empregador.hasMany(Vaga, { foreignKey: 'id_empregador' });
