@@ -37,6 +37,8 @@ export const Vaga = sequelize.define('Vaga', {
     type: DataTypes.TEXT,
     allowNull: false
   },
+}, {
+  tableName: "Vaga"
 });
 
 Vaga.belongsTo(Empregador, { foreignKey: 'id_empregador' });

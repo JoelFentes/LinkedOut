@@ -22,6 +22,8 @@ export const Candidatura = sequelize.define('Candidatura', {
     type: DataTypes.ENUM(),
     allowNull: false,
   }
+}, {
+  tableName: 'Candidatura'
 });
 
 Candidatura.belongsTo(Vaga, { foreignKey: 'id_vaga' });
