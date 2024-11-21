@@ -6,7 +6,7 @@ import { sequelize } from "../../../../connection";
 const checkDB = async (): Promise<boolean> => {
   try {
     await sequelize.authenticate({ logging: false });
-    await sequelize.sync({force: true});
+    await sequelize.sync();
     console.log("Database connection's ok");
     return true;
   } catch (error) {
