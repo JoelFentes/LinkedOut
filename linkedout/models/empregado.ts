@@ -38,4 +38,6 @@ export const Candidato = sequelize.define('Candidato', {
     type: DataTypes.STRING(250),
     allowNull: false
   }
+}, {
+  tableName: "Candidato"
 });

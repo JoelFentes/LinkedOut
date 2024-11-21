@@ -2,7 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Candidaturas", {
+    await queryInterface.createTable("Candidatura", {
       id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "Vagas", // Nome da tabela relacionada
+          model: "Vaga", // Nome da tabela relacionada
           key: "id", // Nome da chave primária da tabela relacionada
         },
         onUpdate: "CASCADE",
@@ -42,6 +42,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Candidaturas");
+    await queryInterface.dropTable("Candidatura");
   },
 };

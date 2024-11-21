@@ -1,6 +1,6 @@
 'use server'
 
-import { NextResponse } from "next/server"; // Import NextResponse
+import { NextResponse } from "next/server";
 import { sequelize } from "../../../../connection";
 
 const checkDB = async (): Promise<boolean> => {

@@ -26,4 +26,6 @@ export const Empregador = sequelize.define('Empregador', {
     type: DataTypes.STRING(250),
     allowNull: false
   }
+}, {
+  tableName: 'Empregador'
 });
