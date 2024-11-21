@@ -1,7 +1,7 @@
 "use server";
 import { DataTypes } from 'sequelize';
-import { sequelize } from '../../connection';
-export const Candidato = sequelize.define('Candidato', {
+import { sequelize } from '../connection';
+export const Empregador = sequelize.define('Empregador', {
   id: {
     type: DataTypes.INTEGER(),
     primaryKey: true,
@@ -16,23 +16,11 @@ export const Candidato = sequelize.define('Candidato', {
     type: DataTypes.STRING(150),
     allowNull: false
   },
-  penalizacao: {
-    type: DataTypes.INTEGER(),
-    allowNull: false
-  },
-  latitude: {
+  cpfcnpj: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    unique: true,
     defaultValue: 0
-  },
-  longitude: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0
-  },
-  curriculo: {
-    type: DataTypes.STRING(250),
-    allowNull: false
   },
   nome: {
     type: DataTypes.STRING(250),

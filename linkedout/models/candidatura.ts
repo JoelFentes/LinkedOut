@@ -1,7 +1,7 @@
 "use server";
 import { DataTypes } from 'sequelize';
+import { sequelize } from '../connection';
 import { Vaga } from './vaga';
-import { sequelize } from '../../connection';
 export const Candidatura = sequelize.define('Candidatura', {
   id: {
     type: DataTypes.INTEGER(),

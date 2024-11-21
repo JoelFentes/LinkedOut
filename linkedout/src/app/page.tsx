@@ -1,9 +1,9 @@
-import Header from '@/components/Header/Header';
 import React from 'react';
 import Image from 'next/image';
 
 import './globals.css'
 import SearchBar from '@/components/Input/SearchBar/SearchBar';
+import Header from '@/components/Header/header';
 
 const HomePage = () => {
   return (

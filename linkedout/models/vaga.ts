@@ -2,7 +2,7 @@
 "use server";
 import { DataTypes } from 'sequelize';
 import { Empregador } from './empregador';
-import { sequelize } from '../../connection';
+import { sequelize } from '../connection';
 export const Vaga = sequelize.define('Vaga', {
   id: {
     type: DataTypes.INTEGER(),
