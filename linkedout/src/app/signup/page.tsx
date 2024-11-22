@@ -1,11 +1,10 @@
-// src/app/signup/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
 import './signup.css';
 import Input from '@/components/Input/Input';
 import Image from 'next/image';
+
 
 const SignUp = () => {
     const [isCompany, setIsCompany] = useState(false);
@@ -15,7 +14,7 @@ const SignUp = () => {
     const [cnpj, setCnpj] = useState('');
     const [industry, setIndustry] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const userData = {
             name,
@@ -23,20 +22,29 @@ const SignUp = () => {
             password,
             ...(isCompany && { cnpj, industry }),
         };
-        console.log(userData);
+
+        try {
+            const response = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userData),
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao cadastrar usuário');
+            }
+
+            const data = await response.json();
+            alert('Usuário cadastrado com sucesso:');
+        } catch (error) {
+            alert(error);
+        }
     };
 
     return (
         <div className="signup-page">
-           {/*  <div className="image-wrapper">
-                <Image
-                    src="/SignupImage.svg"
-                    alt="Signup Image"
-                    className="signup-image"
-                    fill
-                    priority
-                />
-            </div> */}
             <div className="container">
                 <h2>Welcome to LinkedOut!</h2>
                 <p>Create your account</p>
