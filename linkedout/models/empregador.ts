@@ -27,5 +27,5 @@ export const Empregador = sequelize.define('Empregador', {
     allowNull: false
   }
 }, {
-  tableName: 'Empregadores'
+  tableName: 'Empregador'
 });
