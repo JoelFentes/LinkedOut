@@ -4,13 +4,14 @@
 
 import React, { useState } from 'react';
 import './jobposting.css'; // Importando o CSS
+import Image from 'next/image';
 
 const JobPosting = () => {
     const [titulo, setTitulo] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [latitude, setLatitude] = useState(0);
-    const [longitude, setLongitude] = useState(0);
-    const [distanciaMaxima, setDistanciaMaxima] = useState(0);
+    const [latitude, setLatitude] = useState('');
+    const [longitude, setLongitude] = useState('');
+    const [distanciaMaxima, setDistanciaMaxima] = useState('');
     const [idEmpregador] = useState(1); // Este valor deve ser dinâmico baseado no usuário logado
 
     const handleSubmit = async (e) => {
@@ -48,10 +49,11 @@ const JobPosting = () => {
 
     return (
         <div className="job-posting-page">
+        
             <div className="container">
-                <h2>Criar Nova Vaga</h2>
+                <h1>Publique a sua vaga no LinkedOut!</h1>
                 <form onSubmit={handleSubmit}>
-                <div className="input-group">
+                <div className="job-title">
                     <label>Título da Vaga</label>
                     <input 
                         type="text" 
@@ -60,7 +62,7 @@ const JobPosting = () => {
                         required 
                     />
                 </div>
-                <div className="input-group">
+                <div className="job-description">
                     <label>Descrição da Vaga</label>
                     <textarea 
                         value={descricao} 
@@ -68,36 +70,48 @@ const JobPosting = () => {
                         required 
                     />
                 </div>
-                <p>LOCALIZAÇÃO DA VAGA</p>
-                <div className="input-group">
-                    <label>Latitude</label>
-                    <input 
-                        type="number" 
-                        value={latitude} 
-                        onChange={(e) => setLatitude(Number(e.target.value))} 
-                        required 
-                    />
-                </div>
-                <div className="input-group">
-                    <label>Longitude</label>
-                    <input 
-                        type="number" 
-                        value={longitude} 
-                        onChange={(e) => setLongitude(Number(e.target.value))} 
-                        required 
-                    />
-                </div>
-                <div className="input-group">
-                    <label>Distância Máxima (em KM)</label>
-                    <input 
-                        type="number" 
-                        value={distanciaMaxima} 
-                        onChange={(e) => setDistanciaMaxima(Number(e.target.value))} 
-                        required 
-                    />
+                <div className='location'> 
+                    <p>Não sabe a latitude e longitude da sua localização? <br/>procure na internet
+                    </p>
+                    <div className="job-latitude">
+                        <label>Latitude</label>
+                        <input 
+                            type="text" 
+                            value={latitude} 
+                            onChange={(e) => setLatitude(e.target.value)} 
+                            required 
+                        />
+                    </div>
+                    <div className="job-longitude">
+                        <label>Longitude</label>
+                        <input 
+                            type="text" 
+                            value={longitude} 
+                            onChange={(e) => setLongitude(e.target.value)} 
+                            required 
+                        />
+                    </div>
+                    <div className="max-distance">
+                        <label>Distância Máxima (em KM)</label>
+                        <input 
+                            type="text" 
+                            value={distanciaMaxima} 
+                            onChange={(e) => setDistanciaMaxima(e.target.value)} 
+                            required 
+                        />
+                    </div>
                 </div>
                 <button type="submit" className="submit-btn">Criar Vaga</button>
                 </form>
+                <div className='image'>
+                    <Image
+                        src="/JobImage.svg"
+                        alt="Job Image"
+                        className="Job-image"
+                        fill
+                        priority
+                />
+        </div>
             </div>
         </div>
     );
