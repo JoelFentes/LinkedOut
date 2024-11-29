@@ -26,13 +26,22 @@ body {
     max-width: 100%; 
 }
 
+label {
+    position: relative;
+    top: 2rem;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-style: italic;
+    font-family: 'Albert Sans', sans-serif; 
+    
+}
+
 .search-job {
     position: relative;
-    top: 4rem;
-
+    top: 3rem;
 
     height: 3rem;
-    max-width: 25rem; 
+    max-width: 30rem; 
     width: 100%; 
 
     padding: 10px;
@@ -42,11 +51,9 @@ body {
 
 }
 
-
-
 .divider {
     position: relative;
-    top: 7rem;
+    top: 5rem;
 
     width: 100%; 
     height: 1px; 
@@ -55,7 +62,7 @@ body {
 
 .container {
     position: relative;
-    top: 10rem;
+    top: 8rem;
 
     display: flex;
     gap: 3rem;
@@ -64,51 +71,126 @@ body {
     padding-left: 2rem;
     height: 85%;
     width: 85%;
-    background-color: #79818d;
 }
 
 .job-list { 
-    padding-top: 1.2rem;
+    position: relative;
+    bottom: 1.05rem;
     padding-left: 1.2rem;
     height: 100%;
     width: 42%;
-    background-color: #7a6767;
 }
 
 .jobs {
     padding-top: 2rem;
-    padding-left: 2rem;
+    padding-left: 1.5rem;
     height: 15rem;
     width: 90%;
-    background-color: aquamarine;
-}
+    border: 1px solid var(--text-color);
+    border-radius: 10px;
 
-.jobs {
-    padding-top: 2rem;
-    padding-left: 2rem;
-    height: 15rem;
-    width: 90%;
-    background-color: aquamarine;
-
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Faz o conteúdo começar do topo */
+    justify-content: flex-start; 
+}
+
+.jobs h3 {
+    padding-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .jobs p {
-    padding-top: 3rem;
-    overflow: hidden;  /* Esconde qualquer conteúdo que ultrapasse a altura */
-    word-wrap: break-word;  /* Quebra as palavras longas para se ajustar ao container */
-    white-space: normal;  /* Permite a quebra de linha */
-    height: 100%;  /* Ajusta a altura do texto para ocupar o total do container */
-    max-height: 100%;  /* Limita a altura do texto ao máximo da altura do container */
-    font-size: 14px;  /* Tamanho da fonte */
-    color: #333;  /* Cor do texto */
+    display: -webkit-box; 
+    display: box; 
+    padding-top: 2rem;
+    -webkit-line-clamp: 5;
+    line-clamp: 5; 
+    -webkit-box-orient: vertical; 
+    box-orient: vertical; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word; 
+    white-space: normal; 
+    color: #333; 
+    font-size: 14px;
+    margin-right: 50px;
 }
+
 
 
 .selected-job {
     height: 100%;
     width: 50%;
-    background-color: #1e4469;
+
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+}
+
+
+.selected-job h1 {
+    margin-top: 2rem;
+    margin-left: 2rem;
+
+}
+
+
+.selected-job p {
+    margin-top: 1rem;
+    margin-left: 2rem;
+
+}
+
+
+.selected-job .btn-job {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+
+  
+    width: 50%;
+    padding: 10px;
+    background-color: var(--button-color);
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: 'Albert Sans', sans-serif; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.divider-job {
+
+    width: 100%; 
+    height: 1px; 
+    background-color: #ccc; 
+}
+
+.selected-job .description {
+    display: -webkit-box; 
+    display: flex; 
+    -webkit-box-orient: vertical; 
+    box-orient: vertical; 
+    padding-top: 2rem;
+    color: #333;
+    font-size: 1.1rem;
+    margin-right: 2rem;
+
+    max-height: 65%; 
+    overflow-y: auto; 
+    word-wrap: break-word; 
+    white-space: normal; 
+    text-overflow: ellipsis; 
+}
+
+.search-results {
+    padding-bottom: 1rem;
+    padding-right: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
 }

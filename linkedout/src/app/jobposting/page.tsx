@@ -1,5 +1,3 @@
-// src/app/jobposting/page.tsx
-
 'use client';
 
 import React, { useState } from 'react';
@@ -41,7 +39,6 @@ const JobPosting = () => {
 
             const data = await response.json();
             console.log('Vaga criada com sucesso:', data);
-            // Aqui você pode redirecionar ou mostrar uma mensagem de sucesso
         } catch (error) {
             console.error('Erro ao criar vaga:', error);
         }
@@ -101,7 +98,7 @@ const JobPosting = () => {
                         />
                     </div>
                 </div>
-                <button type="submit" className="submit-btn">Criar Vaga</button>
+                <button onClick={handleSubmit} type="submit" className="submit-btn">Criar Vaga</button>
                 </form>
                 <div className='image'>
                     <Image

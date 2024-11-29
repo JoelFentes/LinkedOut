@@ -13,19 +13,12 @@ export async function POST(request: Request) {
     }
 }
 
-export async function GET(request: Request) {
-    const vagaData = await request.json();
-
+export async function GET() {
     try {
-        let result
-        if (vagaData.id) {
-            result = await Vaga.findByPk(vagaData.id)
-        } else {
-            result = await Vaga.findAll();
-        }
-        return NextResponse.json(result, { status: 201 });
+        const result = await Vaga.findAll(); // Ou `findByPk` se estiver filtrando por ID
+        return NextResponse.json(result, { status: 200 }); // Retorna JSON válido
     } catch (error) {
-        console.error('Erro ao criar vaga:', error);
-        return NextResponse.json({ error: 'Erro ao criar vaga' }, { status: 500 });
+        console.error('Erro ao buscar vagas:', error);
+        return NextResponse.json({ error: 'Erro ao buscar vagas' }, { status: 500 });
     }
 }

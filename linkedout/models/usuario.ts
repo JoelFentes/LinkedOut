@@ -1,9 +1,9 @@
-"use server";
+// models/usuario.ts
 
 import { Candidato } from "./empregado";
 import { Empregador } from "./empregador";
-var md5 = require('md5');
 
+// Enum para tipos de usuários
 export enum TipoUsuario {
   EMPREGADOR = "EMPREGADOR",
   EMPREGADO = "EMPREGADO",
@@ -27,18 +27,23 @@ export class Usuario {
     this.tipo = tipo;
   }
 
+  // Método para login
   static async login(email: string, senha: string, tipo: TipoUsuario) {
     let usuario;
-    if (tipo == 'EMPREGADO') {
-      usuario = await Candidato.findOne({where: { email: email, senha: md5(senha)}})
-    } else if (tipo == "EMPREGADOR") {
-      usuario = await Empregador.findOne({where: { email: email, senha: md5(senha)}});
+
+    if (tipo === "EMPREGADO") {
+      usuario = await Candidato.findOne({ where: { email: email, senha: senha } });
+    } else if (tipo === "EMPREGADOR") {
+      usuario = await Empregador.findOne({ where: { email: email, senha: senha } });
     } else {
-      throw "Usuário não existe"
+      throw new Error("Usuário não existe");
     }
+
     if (usuario) {
-      return new Usuario(usuario?.dataValues.id, usuario?.dataValues.nome, usuario?.dataValues.email, usuario.dataValues.cpfcnpj ? TipoUsuario.EMPREGADOR : TipoUsuario.EMPREGADO)
+      // Retorna os dados do usuário
+      return new Usuario(usuario?.dataValues.id, usuario?.dataValues.nome, usuario?.dataValues.email, usuario.dataValues.cpfcnpj ? TipoUsuario.EMPREGADOR : TipoUsuario.EMPREGADO);
     }
-    throw "Usuário não existe"
+
+    throw new Error("Usuário não existe");
   }
 }

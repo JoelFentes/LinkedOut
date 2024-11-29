@@ -29,15 +29,7 @@ const Login = () => {
 
     return (
         <div className="login-page">
-           {/*  <div className="image-wrapper">
-                <Image
-                    src="/LoginImage.svg"
-                    alt="Login Image"
-                    className="login-image"
-                    fill
-                    priority
-                />
-            </div> */}
+       
             <div className="container">
                 <h2>Welcome Back to LinkedOut!</h2>
                 <p>Log in to your account</p>
